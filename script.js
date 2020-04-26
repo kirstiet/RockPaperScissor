@@ -1,34 +1,48 @@
-var userSelection = prompt(
-	"Hello! Let's play rock, paper, scissor!" + 
-	"\nSelect \"rock,\" \"paper,\" or \"scissor.\"");
-playRoundOfGame(userSelection);
+let userSelection;
+let roundResult = document.getElementById("result-box");
+let computerResult = document.getElementById("computer-result-box");
+
+document.getElementById("button-rock").onclick = function() {
+	userSelection = "rock";
+	playRoundOfGame(userSelection);
+};
+
+document.getElementById("button-paper").onclick = function() {
+	userSelection = "paper"
+	playRoundOfGame(userSelection);
+};
+
+document.getElementById("button-scissor").onclick = function() {
+	userSelection = "scissor"
+	playRoundOfGame(userSelection);
+};
+
+
 
 function playRoundOfGame(userSelection) {
 	let computersOptions = ["rock", "paper", "scissor"];
 	let randomValue = Math.floor(Math.random() * 3);
 	let computersSelection = computersOptions[randomValue];
 
-	userSelection = userSelection.toLowerCase();
-	computersSelection = computersSelection.toLowerCase();
-	console.log("The computer selected: " + computersSelection + "\nYou selected: " + userSelection)
+	computerResult.innerHTML = "You selected: " + userSelection 
+		+ "</br>" + "The computer selected: " + computersSelection 
 
 	if(userSelection == computersSelection) {
-		console.log("The game is tied.");
+		roundResult.innerHTML = "The game is tied.";
 
 	} else if(userSelection == "rock" && computersSelection == "scissor") {
-		console.log("You win!");
+		roundResult.innerHTML = "You win!";
 
 	} else if(userSelection == "paper" && computersSelection == "rock") {
-		console.log("You win!");
+		roundResult.innerHTML = "You win!";
 
 	} else if(userSelection == "scissor" && computersSelection == "paper") {
-		console.log("You win!");
+		roundResult.innerHTML = "You win!";
 
 	} else {
-		console.log("You lose!");
+		roundResult.innerHTML = "You lose!";
 
 	}
-
 
 
 }
