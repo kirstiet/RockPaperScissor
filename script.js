@@ -1,22 +1,32 @@
+'use strict';
+
 let userSelection;
-let roundResult = document.getElementById("result-box");
+let userTotalPoints = 0;
+let computerTotalPoints = 0;
+
 let computerResult = document.getElementById("computer-result-box");
+let gameRoundResult = document.getElementById("game-result-box");
+let userPointCounter = document.getElementById("user-point-counter");
+let computerPointCounter = document.getElementById("computer-point-counter");
+
 
 document.getElementById("button-rock").onclick = function() {
 	userSelection = "rock";
 	playRoundOfGame(userSelection);
+
 };
 
 document.getElementById("button-paper").onclick = function() {
 	userSelection = "paper"
 	playRoundOfGame(userSelection);
+
 };
 
 document.getElementById("button-scissor").onclick = function() {
 	userSelection = "scissor"
 	playRoundOfGame(userSelection);
-};
 
+};
 
 
 function playRoundOfGame(userSelection) {
@@ -25,24 +35,31 @@ function playRoundOfGame(userSelection) {
 	let computersSelection = computersOptions[randomValue];
 
 	computerResult.innerHTML = "You selected: " + userSelection 
-		+ "</br>" + "The computer selected: " + computersSelection 
+		+ "</br>" + "Computer selected: " + computersSelection 
 
 	if(userSelection == computersSelection) {
-		roundResult.innerHTML = "The game is tied.";
+		gameRoundResult.innerHTML = "The game is tied.";
 
 	} else if(userSelection == "rock" && computersSelection == "scissor") {
-		roundResult.innerHTML = "You win!";
+		gameRoundResult.innerHTML = "You win!";
+		userTotalPoints = userTotalPoints + 1;
 
 	} else if(userSelection == "paper" && computersSelection == "rock") {
-		roundResult.innerHTML = "You win!";
+		gameRoundResult.innerHTML = "You win!";
+		userTotalPoints = userTotalPoints + 1;
 
 	} else if(userSelection == "scissor" && computersSelection == "paper") {
-		roundResult.innerHTML = "You win!";
+		gameRoundResult.innerHTML = "You win!";
+		userTotalPoints = userTotalPoints + 1;
 
 	} else {
-		roundResult.innerHTML = "You lose!";
+		gameRoundResult.innerHTML = "You lose!";
+		computerTotalPoints = computerTotalPoints + 1;
 
 	}
+
+	userPointCounter.innerHTML = "Your Total Points: " + userTotalPoints;
+	computerPointCounter.innerHTML= "Computer's Total Points: " + computerTotalPoints;
 
 
 }
