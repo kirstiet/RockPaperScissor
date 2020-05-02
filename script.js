@@ -5,6 +5,7 @@ let userTotalPoints = 0;
 let computerTotalPoints = 0;
 
 let computerResult = document.getElementById("computer-result-box");
+let userResult = document.getElementById("user-result-box");
 let gameRoundResult = document.getElementById("game-result-box");
 let userPointCounter = document.getElementById("user-point-counter");
 let computerPointCounter = document.getElementById("computer-point-counter");
@@ -17,6 +18,7 @@ document.getElementById("button-rock").onclick = function() {
 };
 
 document.getElementById("button-paper").onclick = function() {
+	document.getElementById("")
 	userSelection = "paper"
 	playRoundOfGame(userSelection);
 
@@ -34,8 +36,8 @@ function playRoundOfGame(userSelection) {
 	let randomValue = Math.floor(Math.random() * 3);
 	let computersSelection = computersOptions[randomValue];
 
-	computerResult.innerHTML = "You selected: " + userSelection 
-		+ "</br>" + "Computer selected: " + computersSelection 
+	userResult.innerHTML = "Your Selection: " + userSelection;
+	computerResult.innerHTML = "Computer's Selection: " + computersSelection;
 
 	if(userSelection == computersSelection) {
 		gameRoundResult.innerHTML = "The game is tied.";

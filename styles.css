@@ -1,11 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+
 body {
 	background-color: #FFFFFF;
+	font-family: "Jost";
 }
 
 button {
-	background-color: #000000;
+	background-color: orange;
 	color: #FFFFFF;
-	font-family: sans-serif;
+	border-radius: 12px;
 	padding: 10px;
 	font-size: 20px;
+}
+
+#result-box {
+	color: orange;
+	text-align: left;
+	position: absolute;
+	padding: 20px 20px 20px;
+	border: 5px solid orange;
+	width: 200px;
+	height: 200px;
+	top: 100px;
+}
+
+#game-result-box {
+	color: blue;
+	font-weight: bold;
 }
